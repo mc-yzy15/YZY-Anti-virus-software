@@ -112,8 +112,15 @@ public partial class MainWindow : Window
 
         if (dialog.ShowDialog() == true)
         {
-            string selectedPath = System.IO.Path.GetDirectoryName(dialog.FileName);
-            ScanCustomPath(selectedPath);
+            string? selectedPath = System.IO.Path.GetDirectoryName(dialog.FileName);
+            if (!string.IsNullOrEmpty(selectedPath))
+            {
+                ScanCustomPath(selectedPath);
+            }
+            else
+            {
+                MessageBox.Show("请选择有效的文件夹路径。");
+            }
         }
     }
 
@@ -212,7 +219,7 @@ public partial class MainWindow : Window
                         await Task.Delay(10);
 
                         // 检查文件是否感染病毒
-                        ScanResult result = _virusDatabase.ScanFile(file);
+                        ScanResult? result = _virusDatabase.ScanFile(file);
                         if (result != null)
                         {
                             AddScanResult(result);
