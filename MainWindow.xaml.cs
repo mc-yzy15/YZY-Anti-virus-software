@@ -292,6 +292,7 @@ public partial class MainWindow : Window
         MessageBox.Show("清除所选威胁的功能将在完整版中实现");
     }
 
+
     /// <summary>
     /// 全部清除按钮点击事件
     /// </summary>
@@ -299,12 +300,12 @@ public partial class MainWindow : Window
     {
         if (_scanResults.Count == 0)
         {
-            MessageBox.Show("没有发现威胁");
+            MessageBox.Show("没有发现威胁需要清除");
             return;
         }
 
         // 实际应用中，这里应该实现真实的清除逻辑
-        MessageBox.Show("清除全部威胁的功能将在完整版中实现");
+        MessageBox.Show("清除所有威胁的功能将在完整版中实现");
     }
 
     /// <summary>

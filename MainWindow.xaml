@@ -38,7 +38,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style TargetType="TextBlock" x:Key="HeaderText">
+        <Style x:Key="HeaderText" TargetType="TextBlock">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Margin" Value="5"/>
@@ -87,24 +87,30 @@
             </Grid.ColumnDefinitions>
             
             <!-- 左侧扫描选项 -->
-            <Border Grid.Column="0" Background="White" CornerRadius="10" Margin="5" Padding="10" Effect="DropShadow(ShadowDepth=2, Direction=315, Color=#cccccc, Opacity=0.5, BlurRadius=4)">
+            <Border Grid.Column="0" Background="White" CornerRadius="10" Margin="5" Padding="10">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="2" Direction="315" Color="#cccccc" Opacity="0.5" BlurRadius="4"/>
+                </Border.Effect>
                 <StackPanel>
-                    <TextBlock Text="扫描选项" Style="{StaticResource HeaderText}" Margin="0,0,0,10"/>
+                    <TextBlock Text="扫描选项" Style="{DynamicResource HeaderText}" Margin="0,0,0,10"/>
                     <Button Content="快速扫描" Click="QuickScan_Click"/>
                     <Button Content="全盘扫描" Click="FullScan_Click"/>
                     <Button Content="自定义扫描" Click="CustomScan_Click"/>
                     <Button Content="引导扇区扫描" Click="BootSectorScan_Click"/>
                     <Separator Margin="0,10"/>
-                    <TextBlock Text="病毒库更新" Style="{StaticResource HeaderText}" Margin="0,0,0,10"/>
+                    <TextBlock Text="病毒库更新" Style="{DynamicResource HeaderText}" Margin="0,0,0,10"/>
                     <Button Content="检查更新" Click="CheckUpdate_Click"/>
                     <Separator Margin="0,10"/>
-                    <TextBlock Text="设置" Style="{StaticResource HeaderText}" Margin="0,0,0,10"/>
+                    <TextBlock Text="设置" Style="{DynamicResource HeaderText}" Margin="0,0,0,10"/>
                     <Button Content="扫描设置" Click="Settings_Click"/>
                 </StackPanel>
             </Border>
             
             <!-- 右侧扫描结果 -->
-            <Border Grid.Column="1" Background="White" CornerRadius="10" Margin="5" Padding="10" Effect="DropShadow(ShadowDepth=2, Direction=315, Color=#cccccc, Opacity=0.5, BlurRadius=4)">
+            <Border Grid.Column="1" Background="White" CornerRadius="10" Margin="5" Padding="10">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="2" Direction="315" Color="#cccccc" Opacity="0.5" BlurRadius="4"/>
+                </Border.Effect>
                 <StackPanel>
                     <TextBlock Text="扫描结果" Style="{StaticResource HeaderText}"/>
                     <ProgressBar x:Name="ScanProgressBar" Value="0"/>
