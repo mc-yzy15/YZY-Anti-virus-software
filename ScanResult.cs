@@ -9,9 +9,9 @@ namespace YZYAntiVirus;
 /// </summary>
 public class ScanResult
 {
-    public string FilePath { get; set; }
-    public string VirusName { get; set; }
-    public Severity Severity { get; set; }
+    public required string FilePath { get; set; }
+    public required string VirusName { get; set; }
+    public required Severity Severity { get; set; }
 }
 
 /// <summary>
@@ -29,7 +29,7 @@ public enum Severity
 /// </summary>
 public class VirusDatabase
 {
-    public string Version { get; private set; }
+    public string Version { get; private set; } = string.Empty;
     private List<string> _virusSignatures = new();
 
     /// <summary>
@@ -51,7 +51,7 @@ public class VirusDatabase
     /// <summary>
     /// 扫描文件是否感染病毒
     /// </summary>
-    public ScanResult ScanFile(string filePath)
+    public ScanResult? ScanFile(string filePath)
     {
         try
         {
